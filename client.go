@@ -47,8 +47,6 @@ type Client struct {
 	// component, e.g. est.server.com:8443
 	Host string
 
-	HttpProtocol string
-
 	// AdditionalPathSegment is an optional label for EST servers to provide
 	// service for multiple CAs. See RFC7030 3.2.2.
 	AdditionalPathSegment string
@@ -112,7 +110,7 @@ type HttpClientBuilder struct {
 // Client constants.
 const (
 	estVersion = "v1.0.6"
-	userAgent  = "GlobalSign EST Client " + estVersion + " github.com/haritzsaiz/est"
+	userAgent  = "GlobalSign EST Client " + estVersion + " github.com/globalsign/est"
 )
 
 func NewHttpClient(clientBuilder HttpClientBuilder) *http.Client {
@@ -565,7 +563,7 @@ func checkResponseError(r *http.Response) error {
 func (c *Client) uri(endpoint string) string {
 	var builder strings.Builder
 
-	builder.WriteString(fmt.Sprintf("%s://", c.HttpProtocol))
+	builder.WriteString("https://")
 	builder.WriteString(c.Host)
 	builder.WriteString(estPathPrefix)
 

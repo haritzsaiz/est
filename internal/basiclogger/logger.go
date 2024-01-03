@@ -24,7 +24,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/haritzsaiz/est"
+	"github.com/globalsign/est"
 )
 
 // Logger is a basic logger implementing est.Logger.
